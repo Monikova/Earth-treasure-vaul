@@ -3,8 +3,8 @@ import bcrypt from 'bcrypt';
 import jwt from '../lib/jwt.js';
 
 const userService = {
-    async register(username, email, password, rePassword) {
-        const user = await User.findOne({$or: [{email}, {username}]});
+    async register(email, password, rePassword) {
+        const user = await User.findOne({email});
 
         if (password !== rePassword) {
             throw new Error('Password mismatch');
@@ -14,8 +14,7 @@ const userService = {
             throw new Error('User already exists');
         }
 
-        const newUser = await User.create({
-            username, 
+        const newUser = await User.create({ 
             email, 
             password,
         });
@@ -40,7 +39,6 @@ const userService = {
         const payload = {
             _id: user._id, 
             email: user.email,
-            username: user.username,
         }; 
 
         const secret = process.env.JWT_SECRET;
