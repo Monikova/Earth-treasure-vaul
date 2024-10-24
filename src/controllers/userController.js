@@ -10,15 +10,15 @@ userController.get('/register', (req, res) => {
 });
 
 userController.post('/register', async (req, res) => {
-    const {username, email, password, rePassword} = req.body;
+    const {email, password, rePassword} = req.body;
 
     try {
-        const token = await userService.register(username, email, password, rePassword);
+        const token = await userService.register(email, password, rePassword);
         res.cookie(AUTH_COOKIE_NAME, token, {httpOnly: true});
         res.redirect('/');
     } catch(err) {
         const error = getErrorMessage(err);
-        res.render('register', {title: 'Register Page', username, email, error});
+        res.render('register', {title: 'Register Page', email, error});
     }
 });
 

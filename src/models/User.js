@@ -4,10 +4,6 @@ import bcrypt from 'bcrypt';
 const SALT_ROUNDS = 10;
 
 const userSchema = new Schema({
-    username: {
-        type: String, 
-        required: true,
-    }, 
     email: {
         type: String, 
         required: true,

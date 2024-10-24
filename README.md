@@ -8,3 +8,5 @@ JS Back-End old exam task @SoftUni
   - home view;
   - login and register view;
   - 404 view;
+4. Change DB name 
+5. Adjust user model
