@@ -12,4 +12,7 @@ JS Back-End old exam task @SoftUni
 5. Adjust user model and user controller; 
 6. Adjust user service and register functionality
 
-7. Add create (Add stones) page
+7. Add create (Add stones) page 
+8. Add post action on create 
+  - add stone service; 
+  - add stone model; 
