@@ -6,3 +6,5 @@ JS Back-End old exam task @SoftUni
 3. Adjust skeleton
   - modify main layout with dynamic navigation;
   - home view;
+  - login and register view;
+  - 404 view;
