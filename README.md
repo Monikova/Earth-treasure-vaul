@@ -11,3 +11,5 @@ JS Back-End old exam task @SoftUni
 4. Change DB name 
 5. Adjust user model and user controller; 
 6. Adjust user service and register functionality
+
+7. Add create (Add stones) page
