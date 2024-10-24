@@ -5,49 +5,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{title}}</title>
     <link rel="stylesheet" href="/static/css/styles.css">
+    <title>{{title}}</title>
 </head>
 
 <body>
-    <header class="header">
-        <nav>
-            <img src="/static/images/logo.avif" class="logo">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/search">Search</a></li>
-                <li><a href="/volcanoes">All Volcanoes</a></li>
-                <li><a href="/create">Create Volcano Wiki</a></li>
-                {{#if isAuthenticated}}
-                <li><a href="/logout">Logout</a></li>
-                {{else}}
-                <li><a href="/login">Login</a></li>
-                <li><a href="/register">Register</a></li>
-                {{/if}}
-            </ul>
-        </nav>
-    </header>
-        
-    <main>
-        <!-- In case of error, you should display div with class "errorContainer" -->
-        <!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
-        {{#if error}}
-        <div>
-            <div class="errorContainer">
-                <p>{{error}}</p>
-            </div>
+
+    <!-- {{#if error}}
+    <div>
+        <div class="errorContainer">
+            <p>{{error}}</p>
         </div>
-        {{/if}}
+    </div> 
+    {{/if}}-->
+
+    <div id="wrapper">
+        <header>
+            <!-- Navigation -->
+            <nav>
+                <div>
+                    <a href="/">Home</a>
+                    <a href="/catalog">Dashboard</a>
+                    <a href="search">Search</a>
+                </div>
+
+                {{#if isAuthenticated}}
+                <!-- Logged-in users -->
+                <div class="user">
+                    <a href="/create">Add Stones</a>
+                    <a href="/logout">Logout</a>
+                </div>
+
+                {{else}}
+                <!-- Guest users -->
+                <div class="guest">
+                    <a href="/login">Login</a>
+                    <a href="/register">Register</a>
+                </div>
+                {{/if}}
+            </nav>
+        </header>
+
+        <main class="home">
+
+            {{{body}}}
 
 
-    {{{body}}}
+        </main>
 
-    </main>
-        
-    <footer>
-        <p>&copy JS Back-End 2024</p>
-    </footer>
-
+        <footer>
+            <p>@EarthTreasureVaul</p>
+        </footer>
+    </div>
 </body>
 
 </html>
