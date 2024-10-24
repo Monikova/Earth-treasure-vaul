@@ -16,3 +16,6 @@ JS Back-End old exam task @SoftUni
 8. Add post action on create 
   - add stone service; 
   - add stone model; 
+9. Add dashboard (catalog / stones) view
+  - render dashboard view; 
+  - show stones from collection; 

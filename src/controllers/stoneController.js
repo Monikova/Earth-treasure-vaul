@@ -15,11 +15,17 @@ stoneController.post('/create', async (req, res) => {
 
     try {
         await stoneService.create(stone, userId);
-        res.redirect('/dashboard');
+        res.redirect('/stones');
     } catch (err) {
         const error = getErrorMessage(err); 
         res.render('create', {title: 'Create Page', stone, error});
     }
+});
+
+stoneController.get('/stones', async (req, res) => {
+    const stones = await stoneService.getAll().lean();
+    res.render('dashboard', {title: 'Dashboard Page', stones});
+    // res.render('dashboard', {title: 'Dashboard Page'}); // to simulate no stones;
 });
 
 export default stoneController;
