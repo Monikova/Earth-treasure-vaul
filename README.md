@@ -19,3 +19,4 @@ JS Back-End old exam task @SoftUni
 9. Add dashboard (catalog / stones) view
   - render dashboard view; 
   - show stones from collection; 
+10. Add details page with corresponding buttons

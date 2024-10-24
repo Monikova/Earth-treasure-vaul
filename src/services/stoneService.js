@@ -7,6 +7,9 @@ const stoneService = {
     getAll() {
         return Stone.find();
     },
+    getOne(stoneId) {
+        return Stone.findById(stoneId);
+    }
 }; 
 
 export default stoneService;

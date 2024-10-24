@@ -28,4 +28,11 @@ stoneController.get('/stones', async (req, res) => {
     // res.render('dashboard', {title: 'Dashboard Page'}); // to simulate no stones;
 });
 
+stoneController.get('/stones/:stoneId/details', async (req, res) => {
+    const stone = await stoneService.getOne(req.params.stoneId).lean();
+    const isOwner = stone.owner.toString() === req.user?._id; 
+    const hasLiked = stone.likedList?.some(userId => userId.toString() === req.user?._id)
+    res.render('details', {title: 'Details Page', stone, isOwner, hasLiked}); 
+});
+
 export default stoneController;
