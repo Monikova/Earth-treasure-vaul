@@ -2,14 +2,15 @@ import { Router } from "express";
 import userService from "../services/userService.js";
 import { AUTH_COOKIE_NAME } from "../constants.js";
 import { getErrorMessage } from "../utils/errorUtils.js";
+import {isGuest} from '../middlewares/userAuthMiddleware.js';
 
 const userController = Router(); 
 
-userController.get('/register', (req, res) => {
+userController.get('/register', isGuest, (req, res) => {
     res.render('register', {title: 'Register Page'});
 });
 
-userController.post('/register', async (req, res) => {
+userController.post('/register', isGuest, async (req, res) => {
     const {email, password, rePassword} = req.body;
 
     try {
@@ -22,11 +23,11 @@ userController.post('/register', async (req, res) => {
     }
 });
 
-userController.get('/login', (req, res) => {
+userController.get('/login', isGuest, (req, res) => {
     res.render('login', {title: 'Login Page'});
 }); 
 
-userController.post('/login', async (req, res) => {
+userController.post('/login', isGuest, async (req, res) => {
     const {email, password} = req.body; 
 
     try { 

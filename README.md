@@ -23,3 +23,5 @@ JS Back-End old exam task @SoftUni
   - like button functionality; 
   - delete button functionality;
   - add edit view and edit functionality;
+11. Add routes guards
+  - route guard on register and login (logged in users cannot access register and login);
