@@ -29,14 +29,14 @@ const stoneSchema = new Schema({
         type: String, 
         required: true,
     },
-    likedList: [{
-        type: Types.ObjectId,
-        ref: 'User'
-    }],
     owner: {
         type: Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
     },
+    likedList: [{
+        type: Types.ObjectId,
+        ref: 'User', 
+    }],
 }); 
 
 const Stone = model('Stone', stoneSchema);

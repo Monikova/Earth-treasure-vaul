@@ -20,3 +20,5 @@ JS Back-End old exam task @SoftUni
   - render dashboard view; 
   - show stones from collection; 
 10. Add details page with corresponding buttons
+  - like button functionality; 
+  - delete button functionality;

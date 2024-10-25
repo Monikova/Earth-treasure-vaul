@@ -9,6 +9,14 @@ const stoneService = {
     },
     getOne(stoneId) {
         return Stone.findById(stoneId);
+        // return Stone.findOne({stoneId});
+    }, 
+    like(stoneId, userId) {
+        return Stone.findByIdAndUpdate(stoneId, {$push: {likedList: userId}});
+    },
+    remove(stoneId) {
+        return Stone.findByIdAndDelete(stoneId);
+        // return Stone.findOneAndDelete(stoneId);
     }
 }; 
 

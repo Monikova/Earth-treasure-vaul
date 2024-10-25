@@ -29,10 +29,35 @@ stoneController.get('/stones', async (req, res) => {
 });
 
 stoneController.get('/stones/:stoneId/details', async (req, res) => {
-    const stone = await stoneService.getOne(req.params.stoneId).lean();
+    const stoneId = req.params.stoneId;
+    // const stoneId = req.params._id;
+    const stone = await stoneService.getOne(stoneId).lean();
     const isOwner = stone.owner.toString() === req.user?._id; 
-    const hasLiked = stone.likedList?.some(userId => userId.toString() === req.user?._id)
-    res.render('details', {title: 'Details Page', stone, isOwner, hasLiked}); 
+    const hasLiked = stone.likedList?.some(userId => userId.toString() === req.user?._id); 
+    res.render('details', {title: 'Details Page', stoneId, stone, isOwner, hasLiked}); 
 });
+
+stoneController.get('/stones/:stoneId/like', async (req, res) => {
+    // const stoneId = req.params._id;
+    const stoneId = req.params.stoneId;
+    const userId = req.user._id;
+
+    try {
+        await stoneService.like(stoneId, userId);
+        res.redirect(`/stones/${stoneId}/details`);
+    } catch (err) {
+        console.log(err);
+    }
+});
+
+stoneController.get('/stones/:stoneId/delete', async (req, res) => {
+    try {
+        // await stoneService.remove(req.params._id);
+        await stoneService.remove(req.params.stoneId);
+        res.redirect('/stones');
+    } catch (err) {
+        console.log(err);
+    }
+}); 
 
 export default stoneController;
