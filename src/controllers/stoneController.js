@@ -72,12 +72,22 @@ stoneController.get('/stones/:stoneId/delete', isAuth, async (req, res) => {
 stoneController.get('/stones/:stoneId/edit', async (req, res) => {
     // const stone = await stoneService.getOne(req.params._id).lean();
     const stone = await stoneService.getOne(req.params.stoneId).lean();
+    const isOwner = stone.owner.toString() === req.user?._id;
+
+    if(!isOwner) {
+        return res.redirect('/404');
+    }
+
     res.render('edit', {title: 'Edit Page', stone})
 });
 
 stoneController.post('/stones/:stoneId/edit', async (req, res) => {
     const stone = req.body;
     const stoneId = req.params.stoneId;
+
+    if(!isStoneOwner(stoneId, req.user?._id)) {
+        return res.redirect('/404');
+    }
 
     try {
         await stoneService.edit(stoneId, stone); 
