@@ -60,4 +60,23 @@ stoneController.get('/stones/:stoneId/delete', async (req, res) => {
     }
 }); 
 
+stoneController.get('/stones/:stoneId/edit', async (req, res) => {
+    // const stone = await stoneService.getOne(req.params._id).lean();
+    const stone = await stoneService.getOne(req.params.stoneId).lean();
+    res.render('edit', {title: 'Edit Page', stone})
+});
+
+stoneController.post('/stones/:stoneId/edit', async (req, res) => {
+    const stone = req.body;
+    const stoneId = req.params.stoneId;
+
+    try {
+        await stoneService.edit(stoneId, stone); 
+        res.redirect(`/stones/${stoneId}/details`);
+    } catch (err) {
+        const error = getErrorMessage(err);
+        res.render('edit', {title: 'Edit Page', stone, error});
+    }
+});
+
 export default stoneController;

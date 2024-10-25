@@ -17,7 +17,10 @@ const stoneService = {
     remove(stoneId) {
         return Stone.findByIdAndDelete(stoneId);
         // return Stone.findOneAndDelete(stoneId);
-    }
+    }, 
+    edit(stoneId, stone) {
+        return Stone.findByIdAndUpdate(stoneId, stone, {runValidators: true});
+    }, 
 }; 
 
 export default stoneService;

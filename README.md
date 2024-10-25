@@ -22,3 +22,4 @@ JS Back-End old exam task @SoftUni
 10. Add details page with corresponding buttons
   - like button functionality; 
   - delete button functionality;
+  - add edit view and edit functionality;

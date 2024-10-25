@@ -1,0 +1,23 @@
+
+    <!-- <title>Edit Page</title> -->
+
+        <main class="edit">
+            <!-- Edit Page (Only for logged-in users) -->
+            <section id="edit">
+                <div class="form">
+                    <h2>Edit item</h2>
+                    <form class="edit-form" method="POST">
+                        <input type="text" name="name" value="{{stone.name}}" id="name" placeholder="Name" />
+                        <input type="text" name="category" value="{{stone.category}}" id="category" placeholder="Category" />
+                        <input type="text" name="color" value="{{stone.color}}" id="color" placeholder="Color" />
+                        <input type="text" name="image" value="{{stone.image}}" id="stone-img" placeholder="Image" />
+                        <input type="text" name="location" value="{{stone.location}}" id="location" placeholder="Location" />
+                        <input type="text" name="formula" value="{{stone.formula}}" id="formula" placeholder="Formula" />
+                        <textarea id="description" placeholder="Description..."
+                            name="description">{{stone.description}}</textarea>
+
+                        <button type="submit">Edit</button>
+                    </form>
+                </div>
+            </section>
+        </main>
