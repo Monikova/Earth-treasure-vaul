@@ -41,7 +41,11 @@ stoneController.get('/stones/:stoneId/details', async (req, res) => {
 stoneController.get('/stones/:stoneId/like', async (req, res) => {
     // const stoneId = req.params._id;
     const stoneId = req.params.stoneId;
-    const userId = req.user._id;
+    const userId = req.user?._id;
+
+    if(isStoneOwner(stoneId, userId)) {
+        return res.redirect('/404');
+    }
 
     try {
         await stoneService.like(stoneId, userId);
@@ -51,7 +55,11 @@ stoneController.get('/stones/:stoneId/like', async (req, res) => {
     }
 });
 
-stoneController.get('/stones/:stoneId/delete', async (req, res) => {
+stoneController.get('/stones/:stoneId/delete', isAuth, async (req, res) => {
+    if (!isStoneOwner(req.params.stoneId, req.user?._id)) {
+        return res.redirect('/404');
+    }
+
     try {
         // await stoneService.remove(req.params._id);
         await stoneService.remove(req.params.stoneId);
@@ -79,5 +87,12 @@ stoneController.post('/stones/:stoneId/edit', async (req, res) => {
         res.render('edit', {title: 'Edit Page', stone, error});
     }
 });
+
+async function isStoneOwner(stoneId, userId) {
+    const stone = await stoneService.getOne(stoneId).lean();
+    const isOwner = stone.owner.toString() === userId;
+
+    return isOwner;
+}
 
 export default stoneController;

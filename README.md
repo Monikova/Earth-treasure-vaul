@@ -26,3 +26,5 @@ JS Back-End old exam task @SoftUni
 11. Add routes guards
   - route guard on register and login (logged in users cannot access register and login);
   - add route guard on logout and create;
+  - add route guard on like and delete;
+  
