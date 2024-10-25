@@ -27,4 +27,7 @@ JS Back-End old exam task @SoftUni
   - route guard on register and login (logged in users cannot access register and login);
   - add route guard on logout and create;
   - add route guard on like and delete;
-  - add route guard on edit get and post actions;
+  - add route guard on edit get and post actions; 
+12. Validation and Error Handling
+  - login and register validation; 
+  - stone model / create stone validations;
