@@ -1,14 +1,15 @@
 import { Router } from "express";
 import { getErrorMessage } from "../utils/errorUtils.js";
 import stoneService from "../services/stoneService.js";
+import { isAuth } from "../middlewares/userAuthMiddleware.js";
 
 const stoneController = Router(); 
 
-stoneController.get('/create', (req, res) => {
+stoneController.get('/create', isAuth, (req, res) => {
     res.render('create', {title: 'Create Page'});
 });
 
-stoneController.post('/create', async (req, res) => {
+stoneController.post('/create', isAuth, async (req, res) => {
     const stone = req.body; 
     console.log(stone);
     const userId = req.user._id;

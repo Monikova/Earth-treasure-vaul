@@ -2,7 +2,7 @@ import { Router } from "express";
 import userService from "../services/userService.js";
 import { AUTH_COOKIE_NAME } from "../constants.js";
 import { getErrorMessage } from "../utils/errorUtils.js";
-import {isGuest} from '../middlewares/userAuthMiddleware.js';
+import {isGuest, isAuth} from '../middlewares/userAuthMiddleware.js';
 
 const userController = Router(); 
 
@@ -40,7 +40,7 @@ userController.post('/login', isGuest, async (req, res) => {
     }
 }); 
 
-userController.get('/logout', (req, res) => {
+userController.get('/logout', isAuth, (req, res) => {
     res.clearCookie(AUTH_COOKIE_NAME);
     res.redirect('/');
 })

@@ -25,3 +25,4 @@ JS Back-End old exam task @SoftUni
   - add edit view and edit functionality;
 11. Add routes guards
   - route guard on register and login (logged in users cannot access register and login);
+  - add route guard on logout and create;
