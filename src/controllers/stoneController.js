@@ -98,6 +98,11 @@ stoneController.post('/stones/:stoneId/edit', async (req, res) => {
     }
 });
 
+stoneController.get('/search', async (req, res) => {
+    const stones = await stoneService.getAll().lean();
+    res.render('search', {title: 'Search Page', stones}); 
+}); 
+
 async function isStoneOwner(stoneId, userId) {
     const stone = await stoneService.getOne(stoneId).lean();
     const isOwner = stone.owner.toString() === userId;

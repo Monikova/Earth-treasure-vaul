@@ -30,4 +30,6 @@ JS Back-End old exam task @SoftUni
   - add route guard on edit get and post actions; 
 12. Validation and Error Handling
   - login and register validation; 
-  - stone model / create stone validations;
+  - stone model / create stone validations; 
+13. Search
+  - render search view;
