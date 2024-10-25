@@ -32,4 +32,6 @@ JS Back-End old exam task @SoftUni
   - login and register validation; 
   - stone model / create stone validations; 
 13. Search
-  - render search view;
+  - render search view; 
+
+14. Show last 3 stones from data base on home view

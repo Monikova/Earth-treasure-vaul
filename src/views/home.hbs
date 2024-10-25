@@ -6,24 +6,17 @@
             <h2>From sparkling geodes to ancient fossils, EarthTreasureVault offers an exclusive collection of natural treasures, each with its own unique story and geological significance.</h2>
         </section>
         <section id="last-added">
+        {{#if last3Stones}}
+            {{#each last3Stones}}
             <div>
-                <img src="/static/images/amethyst.jpg">
-                <p>Name: Amethyst</p>
-                <p>Category: Silicate mineral</p>
-                <a class="details-btn" href="#">Details</a>
+                <img src="{{image}}">
+                <p>Name: {{name}}</p>
+                <p>Category: {{category}}</p>
+                <a class="details-btn" href="/stones/{{_id}}/details">Details</a>
             </div>
-            <div>
-                <img src="/static/images/beryl.webp">
-                <p>Name: Beryl</p>
-                <p>Category: Cyclosilicate</p>
-                <a class="details-btn" href="#">Details</a>
-            </div>
-            <div>
-                <img src="/static/images/quartz.jpg">
-                <p>Name: Quartz</p>
-                <p>Category: Silicate mineral</p>
-                <a class="details-btn" href="#">Details</a>
-            </div>
-    <!-- <p class="no-post">There are no gems and minerals!</p> -->
+            {{/each}}
+        {{else}}
+            <p class="no-post">There are no gems and minerals!</p>
+        {{/if}}
         </section>
     </main>
