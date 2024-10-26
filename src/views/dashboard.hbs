@@ -8,7 +8,7 @@
                 <ul class="card-wrapper">
                     <!-- Display a li with information about every post (if any)-->
                     {{#each stones}}
-                    <li class="card">
+                    {{!-- <li class="card">
                         <img src="{{image}}"/>
                         <p>
                             <strong>Name: </strong><span class="name">{{name}}</span>
@@ -18,7 +18,8 @@
                         </p>
                         <p><strong>Formula:</strong><span class="formula">{{formula}}</span></p>
                         <a class="details-btn" href="/stones/{{_id}}/details">Details</a>
-                    </li>
+                    </li> --}}
+                    {{>stone}}
                     {{/each}}
                 </ul>
                 {{else}}
