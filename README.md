@@ -38,4 +38,4 @@ JS Back-End old exam task @SoftUni
 14. Show last 3 stones from data base on home view
 15. Add stone partial and render it on search and dashboard
 
-- fix search path when going from a details/edit page
+V - fix search path when going from a details/edit page
