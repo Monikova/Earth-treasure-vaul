@@ -5,8 +5,8 @@
         <!-- Search Page (Only for logged-in users) -->
         <section id="search">
             <h2>Search by Name</h2>
-            <form class="search-wrapper cf" method="POST">
-                <input id="#search-input" type="text" name="search" placeholder="Search here..." required />
+            <form class="search-wrapper cf" method="GET">
+                <input id="#search-input" type="text" name="search" value="{{search}}" placeholder="Search here..." required />
                 <button type="submit">Search</button>
             </form>
             <div id="search-container">

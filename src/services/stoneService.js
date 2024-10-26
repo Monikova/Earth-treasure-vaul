@@ -4,8 +4,14 @@ const stoneService = {
     create(stone, userId) {
         return Stone.create({...stone, owner: userId}); 
     },
-    getAll() {
-        return Stone.find();
+    getAll(filter = {}) {
+        const query = Stone.find();
+
+        if(filter.search) {
+            query.find({name: {$regex: filter.search, $options: 'i'}});
+        }
+
+        return query;
     },
     getOne(stoneId) {
         return Stone.findById(stoneId);

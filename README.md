@@ -33,5 +33,8 @@ JS Back-End old exam task @SoftUni
   - stone model / create stone validations; 
 13. Search
   - render search view; 
+  - add search functionality;
 
 14. Show last 3 stones from data base on home view
+
+- fix search path when going from a details/edit page
